@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Inter, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .button-container {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border: 1px solid #d0d5dd;
+        border-radius: 8px;
+        background: white;
+        cursor: pointer;
+        font-family: Inter, sans-serif;
+        font-weight: 600;
+      }
+      button:hover {
+        background: #f9fafb;
+      }
+      .preview-container {
+        border: 1px solid #eaecf0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      .notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        background-color: #7f56d9;
+        color: white;
+        border-radius: 8px;
+        font-size: 14px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        pointer-events: none;
+      }
+      .notification.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      #tempTextArea {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Convert Figma To Elementor</h1>
+      <div class="button-container">
+        <button id="convertBtn">
+          <span>Convert To Elementor</span>
+        </button>
+        <button id="copyBtn">
+          <span>Copy Minified JSON</span>
+        </button>
+      </div>
+      <div
+        id="previewContainer"
+        class="preview-container"
+        style="display: none">
+        <pre id="previewContent"></pre>
+      </div>
+    </div>
+    <div id="notification" class="notification"> Copied to clipboard! </div>
+    <!-- Textarea tersembunyi untuk copy -->
+    <textarea id="tempTextArea"></textarea>
+
+    <script>
+      let currentData = null;
+
+      // Tombol Convert
+      document.getElementById("convertBtn").onclick = () => {
+        parent.postMessage({ pluginMessage: { type: "convert" } }, "*");
+      };
+
+      // Tombol Copy JSON (Minified)
+      document.getElementById("copyBtn").onclick = () => {
+        if (currentData) {
+          const minifiedJson = JSON.stringify(currentData);
+          copyToClipboard(minifiedJson);
+        } else {
+          alert("No JSON data available to copy!");
+        }
+      };
+
+      // Fungsi untuk menyalin teks ke clipboard
+      function copyToClipboard(text) {
+        const textarea = document.getElementById("tempTextArea");
+        textarea.value = text;
+        textarea.select();
+
+        try {
+          document.execCommand("copy");
+          showNotification();
+        } catch (err) {
+          console.error("Failed to copy:", err);
+        }
+
+        textarea.value = "";
+      }
+
+      // Menampilkan notifikasi saat data disalin
+      function showNotification() {
+        const notification = document.getElementById("notification");
+        notification.classList.add("show");
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
+
+      // Mendengarkan pesan dari plugin Figma
+      window.onmessage = (event) => {
+        if (event.data.pluginMessage) {
+          const message = event.data.pluginMessage;
+
+          if (message.type === "conversion-complete") {
+            currentData = message.data;
+            document.getElementById("previewContainer").style.display = "block";
+            document.getElementById("previewContent").textContent =
+              JSON.stringify(currentData, null, 2); // Ditampilkan dalam format indented
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
