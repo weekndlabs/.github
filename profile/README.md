@@ -1,7 +1,7 @@
 <div align="center">
   <img src="weeknd_labs_banner.png" alt="Weeknd Labs Banner" width="100%">
   
-  ### **Infrastructure for the Agentic Era**
+  # **Infrastructure for the Agentic Era**
   
   [![Radical Openness](https://img.shields.io/badge/Open%20Source-Radical-blueviolet?style=for-the-badge)](https://weekndlabs.com/philosophy)
   [![Origin](https://img.shields.io/badge/Origin-Southeast%20Asia-orange?style=for-the-badge)](https://weekndlabs.com)
