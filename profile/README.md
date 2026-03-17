@@ -1,7 +1,6 @@
 <div align="center">
   <img src="weeknd_labs_banner.png" alt="Weeknd Labs Banner" width="100%">
   
-  # WeekndLabs
   ### **Infrastructure for the Agentic Era**
   
   [![Radical Openness](https://img.shields.io/badge/Open%20Source-Radical-blueviolet?style=for-the-badge)](https://weekndlabs.com/philosophy)
@@ -13,7 +12,7 @@
 
 ## ☄️ Our Philosophy
 
-At **Weeknd Labs**, we don't just build tools; we build the foundational layer for a future where AI and agents are the primary drivers of software. We believe the path to this future must be paved with transparency, builder empathy, and a commitment to openness.
+At **WeekndLabs**, we don't just build tools; we build the foundational layer for a future where AI and agents are the primary drivers of software. We believe the path to this future must be paved with transparency, builder empathy, and a commitment to openness.
 
 ### 🏛️ The Commitments
 - **Raw, Unfiltered Open Source:** Everything we build is shipped open. No hidden enterprise features, no gated "open core" nuances.
