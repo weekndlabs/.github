@@ -10,18 +10,18 @@
 
 <br/>
 
-## ☄️ Our Philosophy
+## Our Philosophy
 
 At **WeekndLabs**, we don't just build tools; we build the foundational layer for a future where AI and agents are the primary drivers of software. We believe the path to this future must be paved with transparency, builder empathy, and a commitment to openness.
 
-### 🏛️ The Commitments
+### The Commitments
 - **Raw, Unfiltered Open Source:** Everything we build is shipped open. No hidden enterprise features, no gated "open core" nuances.
 - **Builder-First Empathy:** We prioritize CLI ergonomics, low latency, extreme predictability, and local-first workflows.
 - **Radical Ownership:** Strictly MIT or Apache 2.0. If you build on our infra, you own it—period.
 
 ---
 
-## 🏗️ Core Infrastructure
+## Core Infrastructure
 
 Our projects are designed to scale agentic systems without the friction of proprietary silos.
 
@@ -31,7 +31,7 @@ Our projects are designed to scale agentic systems without the friction of propr
 
 ---
 
-## 🌏 SEA Origins, Global Standards
+## SEA Origins, Global Standards
 
 Proudly innovating from **Southeast Asia**. We are building a developer ecosystem that combines regional grit with world-class engineering standards.
 
